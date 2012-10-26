@@ -1,7 +1,4 @@
-_ = require('lib/lodash');
-var Backbone = require('lib/backbone');
-
-var Beverage = Backbone.Model.extend({
+var Beverage = Ti.App.Backbone.Model.extend({
 	defaults: {
 		id: 0,
 		name: "",

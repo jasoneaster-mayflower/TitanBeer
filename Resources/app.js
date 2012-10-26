@@ -1,11 +1,13 @@
 Ti.UI.setBackgroundColor("#ffffff");
 
+Ti.App.console = require('helper/console');
+Ti.App._ = require('lib/lodash');
+Ti.App.Backbone = require('lib/backbone');
 
+require('lib/backbone.sync');
 
-//Ti.include("/lib/lodash.js");
-
-_ = require('lib/lodash');
-Backbone = require('lib/backbone');
+// load config file
+Ti.App.config = require('config');
 
 // This is a single context application with mutliple windows in a stack
 (function() {
@@ -19,8 +21,6 @@ Backbone = require('lib/backbone');
 	//yourself what you consider a tablet form factor for android
 	var isTablet = osname === 'ipad' || (osname === 'android' && (width > 899 || height > 899));
 
-	
-	
 	var homeWindow = require('ui/window/Home');
 	var listWindow = require('ui/window/List');
 
