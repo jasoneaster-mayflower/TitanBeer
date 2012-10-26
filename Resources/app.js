@@ -1,4 +1,11 @@
-Ti.include("/lib/lodash.js", "/lib/backbone.js");
+Ti.UI.setBackgroundColor("#ffffff");
+
+
+
+//Ti.include("/lib/lodash.js");
+
+_ = require('lib/lodash');
+Backbone = require('lib/backbone');
 
 // This is a single context application with mutliple windows in a stack
 (function() {
@@ -11,9 +18,12 @@ Ti.include("/lib/lodash.js", "/lib/backbone.js");
 	//considering tablet to have one dimension over 900px - this is imperfect, so you should feel free to decide
 	//yourself what you consider a tablet form factor for android
 	var isTablet = osname === 'ipad' || (osname === 'android' && (width > 899 || height > 899));
+
 	
-	var Window;
+	
+	var homeWindow = require('ui/window/Home');
+	var listWindow = require('ui/window/List');
 
 	var ApplicationTabGroup = require('ui/ApplicationTabGroup');
-	new ApplicationTabGroup(Window).open();
+	new ApplicationTabGroup(homeWindow, listWindow).open();
 })();

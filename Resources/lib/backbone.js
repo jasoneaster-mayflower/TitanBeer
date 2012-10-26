@@ -5,7 +5,7 @@
 //     For all details and documentation:
 //     http://backbonejs.org
 
-(function(){
+var Backbone = function(){
 
   // Initial Setup
   // -------------
@@ -36,7 +36,7 @@
 
   // Require Underscore, if we're on the server, and it's not already present.
   var _ = root._;
-  if (!_ && (typeof require !== 'undefined')) _ = require('underscore');
+  if (!_ && (typeof require !== 'undefined')) _ = require('lodash');
 
   // For Backbone's purposes, jQuery, Zepto, or Ender owns the `$` variable.
   var $ = root.jQuery || root.Zepto || root.ender;
@@ -1428,4 +1428,7 @@
     throw new Error('A "url" property or function must be specified');
   };
 
-}).call(this);
+  return Backbone;
+}
+
+module.exports = Backbone();

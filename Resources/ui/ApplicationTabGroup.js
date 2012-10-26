@@ -1,27 +1,25 @@
-function ApplicationTabGroup(Window) {
+function ApplicationTabGroup(HomeWindow, ListWindow) {
 	//create module instance
 	var self = Ti.UI.createTabGroup();
+	self.setBackgroundColor('#ffffff');
 	
-	//create app tabs
-	var win1 = new Window(L('home')),
-		win2 = new Window(L('settings'));
+	var homeWindow = new HomeWindow();
+	var listWindow = new ListWindow();
 	
-	var tab1 = Ti.UI.createTab({
-		title: L('home'),
-		icon: '/images/KS_nav_ui.png',
-		window: win1
+	var homeTab = Ti.UI.createTab({
+		title: 'Home',
+		window: homeWindow
 	});
-	win1.containingTab = tab1;
+	//homeTab.containingTab = tab1;
 	
-	var tab2 = Ti.UI.createTab({
-		title: L('settings'),
-		icon: '/images/KS_nav_views.png',
-		window: win2
+	var listTab = Ti.UI.createTab({
+		title: 'List',
+		window: listWindow
 	});
-	win2.containingTab = tab2;
+	//listTab.containingTab = tab2;
 	
-	self.addTab(tab1);
-	self.addTab(tab2);
+	self.addTab(homeTab);
+	self.addTab(listTab);
 	
 	return self;
 };

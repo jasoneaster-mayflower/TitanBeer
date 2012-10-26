@@ -1,3 +1,6 @@
+_ = require('lib/lodash');
+var Backbone = require('lib/backbone');
+
 var Beverage = Backbone.Model.extend({
 	defaults: {
 		id: 0,
