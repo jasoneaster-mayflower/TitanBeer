@@ -20,6 +20,10 @@ function ListWindow() {
 	  	}
   	});
   	
+  	self.addEventListener('click', function(e) {
+  		Ti.App.console.log(e.rowData);
+  	});
+  	
   	return self;
 }
 

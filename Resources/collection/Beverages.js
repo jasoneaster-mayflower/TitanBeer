@@ -13,7 +13,10 @@ var Beverages = Ti.App.Backbone.Collection.extend({
      */
     toTableData: function() {
     	return this.map(function(e) {
-  			return { title: e.get('brewery') + ' ' + e.get('name') };
+  			return { 
+  				id: e.get('id'),
+  				title: e.get('brewery') + ' ' + e.get('name')
+			};
   		});
     }
 });
